@@ -11,9 +11,10 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 class FlexPage(Page):
     """Flexible page class"""
 
-    template = "flex/flex_page.html"
 
-    class Meta: #noqa
+
+    class Meta:
+        template = "flex/flex_page.html"
         verbose_name = "Flex (Misc) Page"
         verbose_name_plural = "Flex (Misc) Pages"
 

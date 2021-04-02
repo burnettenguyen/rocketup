@@ -4,8 +4,35 @@ from wagtail.core.models import Page
 from wagtail.core.fields import StreamField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.blocks import SnippetChooserBlock
 
 from streams import blocks
+
+
+NEW_TABLE_OPTIONS = {
+    'minSpareRows': 0,
+    'startRows': 4,
+    'startCols': 4,
+    'colHeaders': False,
+    'rowHeaders': True,
+    'contextMenu': [
+        'row_above',
+        'row_below',
+        '---------',
+        'col_left',
+        'col_right',
+        '---------',
+        'remove_row',
+        'remove_col',
+        '---------',
+        'undo',
+        'redo'
+    ],
+    'editor': 'text',
+    'stretchH': 'all',
+    'renderer': 'text',
+    'autoColumnSize': False,
+}
 
 
 class HomePage(Page):
@@ -54,7 +81,13 @@ class HomePage(Page):
     body = StreamField([
         ("title", blocks.TitleBlock()),
         ("cards", blocks.CardsBlock()),
-        ("image_and_text", blocks.ImageAndTextBlock())
+        ("image_and_text", blocks.ImageAndTextBlock()),
+        ("cta", blocks.CallToActionBlock()),
+        ("testimonial", SnippetChooserBlock(
+            target_model='testimonials.Testimonials',
+            template="streams/testimonial_block.html",
+        )),
+        ("pricing_table_block", blocks.PricingTableBlock()),
         ],
         null=True,
         blank=True,
