@@ -29,6 +29,10 @@ class FlexPage(Page):
             template="streams/simple_richtext_block.html",
             features=["bold", "italic", "ol", "ul", "link"]
         )),
+        ("large_image", ImageChooserBlock(
+            help_text='This image will be cropped to 1200x775',
+            template="streams/large_image_block.html"
+        )),
     ], null=True, blank=True)
 
     content_panels = Page.content_panels + [
