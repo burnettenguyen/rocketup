@@ -30,7 +30,7 @@ class FlexPage(Page):
             features=["bold", "italic", "ol", "ul", "link"]
         )),
         ("large_image", ImageChooserBlock(
-            help_text='This image will be cropped to 1200x775',
+            help_text='This image will be cropped to 851x315',
             template="streams/large_image_block.html"
         )),
     ], null=True, blank=True)
