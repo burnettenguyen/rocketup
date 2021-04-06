@@ -1,5 +1,8 @@
 {% load wagtailimages_tags %}
 
-{% image self fill-851x315 as img %}
-
-<img src="{{ img.url }}" alt="{{ img.alt }}">
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    {% image self fill-851x600 as img %}
+    <img src="{{ img.url }}" alt="{{ img.alt }}">
+  </div>
+</div>
