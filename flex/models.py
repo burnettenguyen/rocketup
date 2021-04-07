@@ -13,6 +13,7 @@ from streams import blocks
 
 class FlexPage(Page):
     parent_page_types = ["home.HomePage", "flex.FlexPage"]
+
     body = StreamField([
         ("title", blocks.TitleBlock()),
         ("cards", blocks.CardsBlock()),

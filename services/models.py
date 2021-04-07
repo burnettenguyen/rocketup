@@ -11,6 +11,10 @@ class ServiceListingPage(Page):
 
     template = 'services/service_listing_page.html'
 
+    parent_page_types = ["home.HomePage"]
+    subpage_types = ["services.ServicePage"]
+    max_count = 1
+
     subtitle = models.TextField(
         blank=True,
         max_length=500,
@@ -25,9 +29,13 @@ class ServiceListingPage(Page):
         context['services'] = ServicePage.objects.live().public()
         return context
 
+
 class ServicePage(Page):
 
     template = 'services/service_page.html'
+
+    parent_page_types = ["services.ServiceListingPage"]
+    subpage_types = []
 
     description = models.TextField(
         blank=True,

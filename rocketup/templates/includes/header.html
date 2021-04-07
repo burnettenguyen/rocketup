@@ -1,4 +1,6 @@
-{% load static %}
+{% load static menu_tags %}
+{%  get_menu "header" as navigation %}
+{# "header" is slug indicated in Wagtail admin #}
 
 
 <nav class="navbar navbar-expand-lg navbar-light">
