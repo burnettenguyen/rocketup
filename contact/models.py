@@ -9,6 +9,26 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 
 
 # Create your models here.
+FORM_FIELD_CHOICES = (
+    ('singleline', _('Single line text')),
+    ('multiline', _('Multi-line text')),
+    ('email', _('Email')),
+    ('url', _('URL')),
+)
+
+
+class CustomAbstractFormField(AbstractFormField):
+    field_type = models.CharField(
+        verbose_name="Field Type",
+        max_length=16,
+        choices=FORM_FIELD_CHOICES,
+    )
+
+    class Meta:
+        abstract = True
+        ordering = ["sort_order"]
+
+
 class FormField(AbstractFormField):
     page = ParentalKey(
         "ContactPage",
