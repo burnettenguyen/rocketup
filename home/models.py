@@ -40,7 +40,7 @@ class HomePage(Page):
     template = 'home/home_page.html'
 
     parent_page_types = ["wagtailcore.Page"]
-    subpage_types = ["flex.FlexPage", "services.ServiceListingPage"]
+    subpage_types = ["flex.FlexPage", "services.ServiceListingPage", "contact.ContactPage"]
     max_count = 1
 
     lead_subtitle = models.CharField(
